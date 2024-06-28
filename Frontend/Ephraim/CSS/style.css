@@ -1,0 +1,475 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color:#0862e0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.all{
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    width: 28vw;
+    height: 45vh;
+    display: inline-block;
+    background-color: #fff;
+}
+.etapes{
+    display: flex;
+    font: size 10px; 
+    font-weight: 700;
+    color: #fff;
+    gap: 15px;
+    border: 1px solid transparent;
+    justify-content: space-around;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /**  background-color: #0448a6;**/
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+#etp1{
+    background-color: #0448a6;
+    border-top-left-radius: 10px;
+    padding-left: 25px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    /** padding-right: 18px;**/
+    width: 6.5rem;
+    position: absolute;
+    top: 0;
+    left: 0 ;
+}
+#triangle1{
+    width: 2vw;
+    height: 3.5vh;
+    background-color: #0448a6;
+    transform: skew(45deg);
+    position: absolute;
+    top: 0;
+    left: 25%;
+}
+#triangle2{
+    width: 2vw;
+    height: 3.5vh;
+    background-color: #0448a6;
+    transform: skew(-45deg);
+    position: absolute;
+    top: 7.3%;
+    left: 25%;
+}
+#etp2{
+    background-color: #0448a6;
+    padding-left: 35px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 8.6rem;
+    position: absolute;
+    top: 0;
+    left: 28%;
+    display: none;
+}
+#triangle3{
+    width: 2vw;
+    height: 3.5vh;
+    background-color: #0448a6;
+    transform: skew(45deg);
+    position: absolute;
+    top: 0;
+    left: 62%;
+    display: none;
+}
+#triangle4{
+    width: 2vw;
+    height: 3.5vh;
+    background-color: #0448a6;
+    transform: skew(-45deg);
+    position: absolute;
+    top: 7.4%;
+    left: 62%;
+    display:none;
+}
+
+#etp3{
+    background-color: #0448a6;
+    border-top-right-radius: 10px;
+    padding-left: 28px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 7.89rem;
+    position: absolute;
+    top: 0;
+    left: 65.9%;
+    display: none;
+}
+.exput{
+    display: flex;
+}
+#exclamation{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 24%;
+    display: none;
+}
+#validation{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 24%;
+    display: none;
+}
+#name{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6;  
+    padding-right: 100px;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin:auto;
+    background: transparent;
+}
+
+input[type='number']::-webkit-inner-spin-button ,input[type='number']::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.exput2{
+    display: flex;
+}
+#exclamation2{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 43%;
+    display:none ;
+}
+#validation2{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 43%;
+    display: none;
+}
+#prenom{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6;
+    padding-right: 100px;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin:auto;
+    margin-top: 10px;
+}
+
+.exput3{
+    display: flex;
+}
+#exclamation3{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 62%;
+    display:none;
+}
+#validation3{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 62%;
+    display: none;
+}
+#numCarte{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6; 
+    padding-right: 100px;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin:auto;
+    margin-top: 10px;
+    }
+#bouton{
+    justify-content: center;
+    align-items: center;
+    padding: 8px  ;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0448a6;
+    color: #fff;
+    font-weight: 700;
+    margin-left: 35%;
+    margin-top : 25px; 
+}
+
+
+/** DEUXIEME PARTIE **/
+
+#part2{
+    display: none;
+}
+
+.inputs2{
+    display: flex;
+    flex-direction: column;
+}
+
+.exput4{
+    display: flex;
+}
+#exclamation4{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 22%;
+    display:none;
+}
+#validation4{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 22%;
+    display: none;
+}
+#email{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6;  
+    /**padding-right: 60px;**/
+    width: 80%;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin:auto;
+    margin-top: -20px;
+    background: transparent;
+}
+.exput5{
+    display: flex;
+}
+#exclamation5{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 42%;
+    display:none;
+}
+#validation5{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 42%;
+    display:none ;
+}
+#password{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6;
+    padding-right: 95px;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin:auto;
+    margin-top: 8px;
+    background: transparent;
+}
+
+.passEyes{
+    display: flex;
+}
+#eyes{
+    width: 25px;
+    margin-left: -95px;
+    margin-top:30px;
+    cursor: pointer;
+}
+#eyes2{
+    width: 25px;
+    margin-left: -95px;
+    margin-top: 30px;
+    display: none;
+    cursor: pointer;
+}
+.exput6{
+    display: flex;
+}
+#exclamation6{
+    width: 20px;
+    position: absolute;
+    left: 80%;
+    top: 61%;
+    display:none;
+}
+#validation6{
+    width: 20px;
+    position: absolute;
+    left: 81%;
+    top: 61%;
+    display: none;
+}
+#number{
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #0448a6; 
+    padding-right: 95px;
+    padding-left: 20px;
+    padding-top :25px;
+    padding-bottom: 5px;
+    margin: auto;
+    margin-top: -10px;
+    background: transparent;
+    
+}
+
+
+.sexes{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.btn2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+#btnRetour{
+    justify-content: center;
+    align-items: center;
+    padding: 8px  ;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0448a6;
+    color: #fff;
+    font-weight: 700;
+}
+
+#btnSuivant {
+    padding: 8px  ;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0448a6;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+
+/**...................................troisieme partie ....................................**/
+
+
+
+#part3{
+    display: none;
+}
+
+.options{
+    margin-left: 25px;
+    margin-top: -25px;
+}
+#niveau{ 
+    height: 6.5vh;
+    width: 20rem;
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 5px;
+    border:1px solid #0448a6;
+    background-color: transparent;
+}
+#parcours{ 
+    height: 6.5vh;
+    width: 20rem;
+    margin-top: 15px;
+    border-radius: 5px;
+    border:1px solid #0448a6;
+    background-color: transparent;
+}
+
+/**#semestre{ 
+    height: 5.5vh;
+    width: 17rem;
+    margin-top: 15px;
+    border-radius: 5px;
+    border:1px solid #0448a6;
+    background-color: transparent;
+}**/
+
+
+#specialite{ 
+    height: 6.5vh;
+    width: 20rem;
+    margin-top: 15px;
+    border-radius: 5px;
+    border:1px solid #0448a6;
+    background-color: transparent;
+}
+
+.btn3{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+#btn3Retour{
+    justify-content: center;
+    align-items: center;
+    padding: 8px  ;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0448a6;
+    color: #fff;
+    font-weight: 700;
+}
+
+#btn3Suivant {
+    padding: 8px  ;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 50px;
+    border: none;
+    background-color: #0448a6;
+    color: #fff;
+    font-weight: 700;
+}
+
+/**.......................................quatrieme partie.......................................**/
+
+#part4{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin-top: 10%;
+}
+#succes{
+    width: 70px;
+    display: flex;
+    margin:auto;
+}
+.image h4{
+    margin-top: 25px;
+    margin-left: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

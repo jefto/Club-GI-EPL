@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjetClub</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
+</head>
+<body>
+    <div class="all">
+        <br><br>
+
+        <div class="etapes">
+            <p id="etp1">Etape 1</p> 
+
+
+            <div id="triangle1"></div>
+            <div id="triangle2"></div>
+
+
+            <p id="etp2">Etape 2</p>
+
+
+            <div id="triangle3"></div>
+            <div id="triangle4"></div>
+
+
+            <p id="etp3">Etape 3</p>
+        </div>
+    <section id="part1">
+        <div class="inputs">
+            <form >
+                <div class="exput">
+                    <input type="text" name="name" id="name" placeholder="Nom" required > <br>
+                    <span><img src="/images/exclamtion.png" alt="exclamtion" id="exclamation"></span>
+                    <span><img src="/images/validation.png" alt="validation" id="validation"></span>
+                </div>
+                
+                <div class="exput2">
+                    <input type="text" name="prenom" id="prenom" placeholder="Prenoms" required><br>
+                    <span><img src="/images/exclamtion.png" alt="exclamtion" id="exclamation2"></span>
+                    <span><img src="/images/validation.png" alt="validation" id="validation2"></span>
+                </div> 
+                <div class="exput3">
+                    <input type="number" name="carte" id="numCarte" placeholder="Numero de carte" required>
+                    <span><img src="/images/exclamtion.png" alt="exclamtion" id="exclamation3"></span>
+                    <span><img src="/images/validation.png" alt="validation" id="validation3"></span>
+                </div>
+
+            </form>
+        </div>
+        <div class="btn">
+            <button id="bouton">suivant</button>
+        </div>
+    </section> 
+    <section id="part2" >
+        <div class="inputs2 exput4">
+            <div class="exput4">
+                <input type="email" name="email" id="email" placeholder="exemple@gmail.com" required>
+                <img src="/images/exclamtion.png" alt="exclamation" id="exclamation4">
+                <img src="/images/validation.png" alt="validation" id="validation4">
+            </div>
+            <div class="passEyes"><input type="password" name="password" id="password" placeholder="password" required>
+                <span><img src="/images/images-removebg-preview.png" alt="eyes" id="eyes">  </span>
+                <span> <img src="/images/images2-removebg-preview.png" alt="eyes" id="eyes2"></span>
+                <img src="/images/exclamtion.png" alt="exclamation" id="exclamation5">
+                <img src="/images/validation.png" alt="validation" id="validation5">
+            </div><br>
+            <div class="exput6">
+                <input type="number" name="number" id="number" placeholder="Numero de Telephone"><br>
+                <img src="/images/exclamtion.png" alt="exclamation" id="exclamation6">
+            <img src="/images/validation.png" alt="validation" id="validation6">
+            </div>
+            <div class="sexes">
+                <input type="radio" name="sexe" id="sexe">Masculin
+                <input type="radio" name="sexe" id="sexe">Feminin   
+            </div>
+        </div>
+        <div class="btn2">
+            <button id="btnRetour">retour</button>
+            <button id="btnSuivant">suivant</button>
+        </div>
+    </section>
+
+    <section id="part3">
+
+        <br>
+        <div class="options">
+
+            <div id="niveau-container">
+                <select name="niveau" id="niveau">
+                    <option value="--" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Niveau</option>
+                    <option value="Licence"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Licence</option>
+                    <option value="Master"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master</option>
+                </select>
+            </div>
+            <div id="parcours-container">
+                <select name="parcours" id="parcours">
+                    <option value="--" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parcours</option>
+                    <option value="Licence - Fondamentale"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Licence - Fondamentale</option>
+                    <option value="Licence - Professionnelle"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Licence - Professionnelle</option>
+                </select>
+            </div>
+    
+            <!--<div id="semestre-container">
+                <select name="semestre" id="semestre">
+                    <option value="--" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semestre </option>
+                    <option value="Semestre1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semestre1</option>
+                    <option value="Mousson"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mousson</option>
+                </select>
+            </div>-->
+        <div id="specialite-container">
+                <select name="specialite" id="specialite">
+                    <option value="--" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specialité</option>
+                    <option value="Genie Mecanique"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genie Mecanique</option>
+                    <option value="Genie Civil"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genie Civil</option>
+                    <option value="Genie Informatique"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genie Informatique</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="btn3">
+            <button id="btn3Retour">retour</button>
+            <button id="btn3Suivant">suivant</button>
+        </div>
+
+    </section>
+    <section id="part4">
+        <div class="image">
+            <img src="/images/validation.png" alt="valide" id="succes">
+
+            <h4 style="color: #0448a6;">Votre compte a été crée avec succès</h4>
+        </div>
+    </section>
+    </div>
+
+    <script src="/JavaScript/script.js"></script>
+</body>
+</html>
