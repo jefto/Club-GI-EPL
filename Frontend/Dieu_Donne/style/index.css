@@ -9,7 +9,7 @@
 body{
     box-sizing: border-box;
     overflow-x: hidden;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 400;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -49,17 +49,22 @@ thead{
 }
 
 /* Style pour les lignes de l'en-tête de la table : disposition en colonne, centrage du texte, couleur du texte et de fond */
-thead tr,thead th{
-    display: flex;
-    flex-direction: row;
-    text-align: left;
+thead th{
     color: #fff;
     background-color: #0448a6;
-    padding: 5px 10px;
+    padding: 1% 10px;
+    text-align: left;
 }
 
-thead th{
+.information{
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    width: 100%;
+}
+
+.information span{
+    width: 100%;
 }
 
 /* Style pour les lignes, cellules d'en-tête et cellules de corps du tableau : bordure et padding */
