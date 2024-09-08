@@ -37,8 +37,9 @@ function firstReturnMoove(){
     secondPartButton.style.display = "none";
     stepNumber.innerText = "01"
 }
-firstSubmitButton.addEventListener('click',()=>{
-    firstStepMoove();
+firstSubmitButton.addEventListener('click',(e)=>{
+    e.preventDefault ;
+    validationName();
 });
 
 // ecouter un evenement sur le premier button retour 
@@ -71,3 +72,43 @@ secondSubmitButton.addEventListener('click',()=>{
 secondReturnButton.addEventListener('click',()=>{
     secondReturnMoove();
 })
+
+function checkErrorFalse( unvalidInput ){
+    unvalidInput.style.border = " solid 2px rgb(228, 8, 8) ";
+    unvalidInput.focus();
+}
+function checkValidInput (validInput){
+    validInput.style.border = " solid 2px rgb(67, 196, 8) ";
+}
+
+// reuperer l'input name
+function validationName(){
+    const inputName = document.getElementById("name");
+    const inputPrenoms = document.getElementById("prenom")
+    const inputCartNumber = document.getElementById("numCarte")
+    const myRegex = new RegExp("^[a-zA-Z-\s]+$") ;
+    const cartNumberRegex = new RegExp("^[0-9-]+$")
+
+    if(inputName.value.trim() == "" && inputPrenoms.value.trim() == "" && inputCartNumber.value.trim() == ""){
+
+        checkErrorFalse(inputName);
+        checkErrorFalse(inputPrenoms);
+        checkErrorFalse(inputCartNumber);
+
+    }else if(   myRegex.test(inputName.value) == true
+                && myRegex.test(inputPrenoms.value) == true
+                && cartNumberRegex.test(inputCartNumber.value) == true)
+    {
+
+        checkValidInput(inputName)
+        checkValidInput(inputPrenoms)
+        checkValidInput(inputCartNumber)
+        
+        firstStepMoove();
+
+    } 
+}
+
+
+
+
