@@ -144,10 +144,3 @@ form .valide-button{
 .third-part{
     display: none;
 }
-
-.valid {
-    border: 2px solid green;
-}
-.invalid {
-    border: 2px solid red;
-}

@@ -38,6 +38,21 @@ function firstReturnMoove() {
     stepNumber.innerText = "01"
 }
 
+firstSubmitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    validationName();
+    validationPrenoms();
+    validationCartNumber();
+
+    const isNameValid = validationName();
+    const isPrenomsValid = validationPrenoms();
+    const isCartNumberValid = validationCartNumber();
+    
+    if (isNameValid && isPrenomsValid && isCartNumberValid) {
+        firstStepMoove();
+    }
+    
+});
 
 // ecouter un evenement sur le premier button retour 
 firstReturnButton.addEventListener('click', () => {
@@ -45,7 +60,7 @@ firstReturnButton.addEventListener('click', () => {
 
 });
 
-// ecouter un evenement sur le second button pour aller a la seconde etape
+// ecouter un evenement sur le second button pour aller a la troisieme etape
 
 function secondStepMoove() {
     secondPart.style.display = "none";
@@ -63,108 +78,78 @@ function secondReturnMoove() {
     stepNumber.innerText = "02"
 }
 
-secondSubmitButton.addEventListener('click', () => {
-    firstStepMoove();
-    secondStepMoove();
+secondSubmitButton.addEventListener('click', (event) => {
+    
+
+    event.preventDefault ;
+    validationEmail();
+    validationNumber();
+    validationSexe();
+    const isEmailvalid = validationEmail()
+    const isNumberValid = validationNumber()
+    if(isEmailvalid && isNumberValid) {
+        secondStepMoove();
+    }
+
 });
+
 secondReturnButton.addEventListener('click', () => {
     secondReturnMoove();
 })
-/*
-function checkErrorFalse( unvalidInput ){
-    unvalidInput.style.border = " solid 2px rgb(228, 8, 8) ";
-    unvalidInput.focus();
-}
-function checkValidInput (validInput){
-    validInput.style.border = " solid 2px rgb(67, 196, 8) ";
-}
 
-const inputName = document.getElementById("name");
+thirdSubmitButton.addEventListener('click',(option)=>{
+    option.preventDefault;
+    validationNiveau();
+    validationParcours();
+    validationSpecialite()
 
+})
 
-// reuperer l'input name
-function validationName(){
+// validation des champs de la premiere etape 
 
-    const inputPrenoms = document.getElementById("prenom")
-    const inputCartNumber = document.getElementById("numCarte")
-    const myRegex = new RegExp("^[a-zA-Z-\s]+$") ;
-    const cartNumberRegex = new RegExp("^[0-9-]+$")
-
-    if(inputName.value.trim() == "" && inputPrenoms.value.trim() == "" && inputCartNumber.value.trim() == ""){
-
-        checkErrorFalse(inputName);
-        checkErrorFalse(inputPrenoms);
-        checkErrorFalse(inputCartNumber);
-
-    }else if(   myRegex.test(inputName.value) == true
-                && myRegex.test(inputPrenoms.value) == true
-                && cartNumberRegex.test(inputCartNumber.value) == true)
-    {
-
-        checkValidInput(inputName)
-        checkValidInput(inputPrenoms)
-        checkValidInput(inputCartNumber)
-
-        firstStepMoove();
-
-    } 
-}
-*/
+// recuperer les inputs de  first part
 const inputName = document.getElementById("name");
 const inputPrenoms = document.getElementById("prenom");
 const inputCartNumber = document.getElementById("numCarte");
 
+// creer des expressions regulieres pour chaque champs
+const nameRegex = new RegExp("^[a-zA-Z' \s-]+$");
+const prenomsRegex = new RegExp("^[a-zA-Zéèêëàäïöüç \s-]+$");
+const cartNumberRegex = new RegExp("^[0-9-]+$");
 
-const nameRegex = /^[a-zA-Z-\s]+$/;
-const PrenomsRegex = /^[a-zA-Zéèêëàäïöüç\s-]+$/;
-const cartNumberRegex = /^[0-9-]+$/;
+
 
 inputName.addEventListener('input', validationName);
 inputPrenoms.addEventListener('input', validationPrenoms);
 inputCartNumber.addEventListener('input', validationCartNumber);
 
-firstSubmitButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    validationName();
-    validationPrenoms();
-    validationCartNumber();
-
-    const isNameValid = validationName();
-    const isPrenomsValid = validationPrenoms();
-    const isCartNumberValid = validationCartNumber();
-    
-    if (isNameValid && isPrenomsValid && isCartNumberValid) {
-        firstStepMoove();
-    }
-    
-});
 
 function validationName() {
     if (nameRegex.test(inputName.value)) {
-        checkValidInput(inputName)
+        checkValidInput(inputName);
         return true;
     } else {
-        checkErrorFalse(inputName)
+        checkErrorFalse(inputName);
         return false;
     }
 }
 
 function validationPrenoms() {
-    if (PrenomsRegex.test(inputPrenoms.value)) {
-        checkValidInput(inputPrenoms)
+    if (prenomsRegex.test(inputPrenoms.value)) {
+        checkValidInput(inputPrenoms);
         return true;
     } else {
-        checkErrorFalse(inputPrenoms)
+        checkErrorFalse(inputPrenoms);
         return false;
     }
 }
 
 function validationCartNumber() {
     if (cartNumberRegex.test(inputCartNumber.value)) {
-        checkValidInput(inputCartNumber)
+        checkValidInput(inputCartNumber);
         return true;
     } else {
-        checkErrorFalse(inputCartNumber)
+        checkErrorFalse(inputCartNumber);
         return false;
     }
 }
@@ -176,3 +161,93 @@ function checkErrorFalse(unvalidInput) {
 function checkValidInput(validInput) {
     validInput.style.border = " solid 2px rgb(67, 196, 8) ";
 }
+
+//validation des champs de la deuxième etape 
+
+const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
+const inputNumber = document.getElementById("number");
+const genreElement = document.getElementById("sexe")
+
+// creer les expressions reguliere correspondante
+
+const emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9._-]+$");
+const numberRegex = new RegExp("^[7-9][0-9]{7}$");
+
+
+inputEmail.addEventListener('input', validationEmail);
+inputNumber.addEventListener('input',validationNumber);
+genreElement.addEventListener('input',validationSexe);
+
+
+function validationEmail() {
+    if (emailRegex.test(inputEmail.value)) {
+        checkValidInput(inputEmail);
+        return true;
+    } else {
+        checkErrorFalse(inputEmail);
+        return false;
+    }
+}
+
+function validationPassword(){
+    if(inputPassword.value.trim() == " "){
+        checkErrorFalse(inputPassword);
+        return false;
+        
+    }else{
+        checkValidInput(inputPassword);
+        return true ;
+    }
+}
+
+function validationNumber(){
+    if (numberRegex.test(inputNumber.value)) {
+        checkValidInput(inputNumber);
+        return true;
+    } else {
+        checkErrorFalse(inputNumber);
+        return false;
+    }
+}
+
+function validationSexe(){
+    if (genreElement.value === "") {
+        checkErrorFalse(genreElement);
+    }else{
+        checkValidInput(genreElement);
+    }
+}
+
+// validation des elements de la troisieme partie
+
+const niveauElement = document.getElementById("niveau");
+const parcoursElement = document.getElementById("parcours");
+const specialiteElement = document.getElementById("specialite");
+
+niveauElement.addEventListener('input',validationNiveau);
+parcoursElement.addEventListener('input',validationParcours);
+specialiteElement.addEventListener('input',validationSpecialite);
+
+function validationNiveau(){
+    if (niveauElement.value === "") {
+        checkErrorFalse(niveauElement);
+    }else{
+        checkValidInput(niveauElement);
+    }
+}
+function validationParcours(){
+    if (parcoursElement.value === "") {
+        checkErrorFalse(parcoursElement);
+    }else{
+        checkValidInput(parcoursElement);
+    }
+}
+function validationSpecialite(){
+    if (specialiteElement.value === "") {
+        checkErrorFalse(specialiteElement);
+    }else{
+        checkValidInput(specialiteElement);
+    }
+}
+
