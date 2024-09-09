@@ -1,20 +1,20 @@
 // recuperer les parties prncipales
-const firstPart  = document.querySelector(".first-part");
+const firstPart = document.querySelector(".first-part");
 const secondPart = document.querySelector(".second-part");
-const thirdPart  = document.querySelector(".third-part");
+const thirdPart = document.querySelector(".third-part");
 
 //recuperer les bouttons de chaque principale partie
-const firstPartButton  = document.querySelector(".first-part-button");
+const firstPartButton = document.querySelector(".first-part-button");
 const secondPartButton = document.querySelector(".second-part-button");
-const thirdPartButton  = document.querySelector(".third-part-button");
+const thirdPartButton = document.querySelector(".third-part-button");
 
 // recuperer les buttons particuliers de submit
-const firstSubmitButton  =  document.getElementById("first-submit");
-const secondSubmitButton =  document.getElementById("second-submit");
-const thirdSubmitButton  =  document.getElementById("third-submit");
+const firstSubmitButton = document.getElementById("first-submit");
+const secondSubmitButton = document.getElementById("second-submit");
+const thirdSubmitButton = document.getElementById("third-submit");
 
 // recuperer les boutons de retours
-const firstReturnButton  = document.getElementById("first-return");
+const firstReturnButton = document.getElementById("first-return");
 const secondReturnButton = document.getElementById("second-return");
 
 // recuperer les step part
@@ -23,33 +23,31 @@ const stepNumber = document.getElementById("step-number");
 
 // ecouter un evenement sur le prmier button pour aller a la seconde etape
 
-function firstStepMoove(){
+function firstStepMoove() {
     firstPart.style.display = "none";
     firstPartButton.style.display = "none";
     secondPart.style.display = "block";
     secondPartButton.style.display = "flex";
     stepNumber.innerText = "02"
 }
-function firstReturnMoove(){
+function firstReturnMoove() {
     firstPart.style.display = "block";
     firstPartButton.style.display = "block";
     secondPart.style.display = "none";
     secondPartButton.style.display = "none";
     stepNumber.innerText = "01"
 }
-firstSubmitButton.addEventListener('click',(e)=>{
-    e.preventDefault ;
-    validationName();
-});
+
 
 // ecouter un evenement sur le premier button retour 
-firstReturnButton.addEventListener('click',()=>{
+firstReturnButton.addEventListener('click', () => {
     firstReturnMoove();
+
 });
 
 // ecouter un evenement sur le second button pour aller a la seconde etape
 
-function secondStepMoove(){
+function secondStepMoove() {
     secondPart.style.display = "none";
     secondPartButton.style.display = "none";
     thirdPart.style.display = "block";
@@ -57,7 +55,7 @@ function secondStepMoove(){
     stepNumber.innerText = "03"
 }
 
-function secondReturnMoove(){
+function secondReturnMoove() {
     secondPart.style.display = "block";
     secondPartButton.style.display = "flex";
     thirdPart.style.display = "none";
@@ -65,14 +63,14 @@ function secondReturnMoove(){
     stepNumber.innerText = "02"
 }
 
-secondSubmitButton.addEventListener('click',()=>{
+secondSubmitButton.addEventListener('click', () => {
     firstStepMoove();
     secondStepMoove();
 });
-secondReturnButton.addEventListener('click',()=>{
+secondReturnButton.addEventListener('click', () => {
     secondReturnMoove();
 })
-
+/*
 function checkErrorFalse( unvalidInput ){
     unvalidInput.style.border = " solid 2px rgb(228, 8, 8) ";
     unvalidInput.focus();
@@ -81,9 +79,12 @@ function checkValidInput (validInput){
     validInput.style.border = " solid 2px rgb(67, 196, 8) ";
 }
 
+const inputName = document.getElementById("name");
+
+
 // reuperer l'input name
 function validationName(){
-    const inputName = document.getElementById("name");
+
     const inputPrenoms = document.getElementById("prenom")
     const inputCartNumber = document.getElementById("numCarte")
     const myRegex = new RegExp("^[a-zA-Z-\s]+$") ;
@@ -103,12 +104,75 @@ function validationName(){
         checkValidInput(inputName)
         checkValidInput(inputPrenoms)
         checkValidInput(inputCartNumber)
-        
+
         firstStepMoove();
 
     } 
 }
+*/
+const inputName = document.getElementById("name");
+const inputPrenoms = document.getElementById("prenom");
+const inputCartNumber = document.getElementById("numCarte");
 
 
+const nameRegex = /^[a-zA-Z-\s]+$/;
+const PrenomsRegex = /^[a-zA-Zéèêëàäïöüç\s-]+$/;
+const cartNumberRegex = /^[0-9-]+$/;
 
+inputName.addEventListener('input', validationName);
+inputPrenoms.addEventListener('input', validationPrenoms);
+inputCartNumber.addEventListener('input', validationCartNumber);
 
+firstSubmitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    validationName();
+    validationPrenoms();
+    validationCartNumber();
+
+    const isNameValid = validationName();
+    const isPrenomsValid = validationPrenoms();
+    const isCartNumberValid = validationCartNumber();
+    
+    if (isNameValid && isPrenomsValid && isCartNumberValid) {
+        firstStepMoove();
+    }
+    
+});
+
+function validationName() {
+    if (nameRegex.test(inputName.value)) {
+        checkValidInput(inputName)
+        return true;
+    } else {
+        checkErrorFalse(inputName)
+        return false;
+    }
+}
+
+function validationPrenoms() {
+    if (PrenomsRegex.test(inputPrenoms.value)) {
+        checkValidInput(inputPrenoms)
+        return true;
+    } else {
+        checkErrorFalse(inputPrenoms)
+        return false;
+    }
+}
+
+function validationCartNumber() {
+    if (cartNumberRegex.test(inputCartNumber.value)) {
+        checkValidInput(inputCartNumber)
+        return true;
+    } else {
+        checkErrorFalse(inputCartNumber)
+        return false;
+    }
+}
+
+function checkErrorFalse(unvalidInput) {
+    unvalidInput.style.border = " solid 2px rgb(228, 8, 8) ";
+    unvalidInput.focus();
+}
+function checkValidInput(validInput) {
+    validInput.style.border = " solid 2px rgb(67, 196, 8) ";
+}

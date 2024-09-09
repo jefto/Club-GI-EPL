@@ -145,9 +145,9 @@ form .valide-button{
     display: none;
 }
 
-.valide{
-    border: solid 2px rgb(67, 196, 8);
+.valid {
+    border: 2px solid green;
 }
-.unvalide{
-    border: solid 2px rgb(228, 8, 8);
+.invalid {
+    border: 2px solid red;
 }
