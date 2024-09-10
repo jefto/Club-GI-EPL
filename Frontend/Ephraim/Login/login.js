@@ -2,6 +2,8 @@
 const firstPart = document.querySelector(".first-part");
 const secondPart = document.querySelector(".second-part");
 const thirdPart = document.querySelector(".third-part");
+const fourPart  = document.querySelector(".four-part")
+const step = document.querySelector(".step")
 
 //recuperer les bouttons de chaque principale partie
 const firstPartButton = document.querySelector(".first-part-button");
@@ -12,6 +14,7 @@ const thirdPartButton = document.querySelector(".third-part-button");
 const firstSubmitButton = document.getElementById("first-submit");
 const secondSubmitButton = document.getElementById("second-submit");
 const thirdSubmitButton = document.getElementById("third-submit");
+const validateButton = document.querySelector(".valide-button")
 
 // recuperer les boutons de retours
 const firstReturnButton = document.getElementById("first-return");
@@ -81,13 +84,18 @@ function secondReturnMoove() {
 secondSubmitButton.addEventListener('click', (event) => {
     
 
-    event.preventDefault ;
+    event.preventDefault() ;
     validationEmail();
+    validationPassword();
     validationNumber();
     validationSexe();
-    const isEmailvalid = validationEmail()
-    const isNumberValid = validationNumber()
-    if(isEmailvalid && isNumberValid) {
+    
+    const isEmailvalid = validationEmail();
+    const isPasswordValid = validationPassword();
+    const isNumberValid = validationNumber();
+    const isSexeValid = validationSexe();
+
+    if(isEmailvalid && isPasswordValid && isNumberValid && isSexeValid) {
         secondStepMoove();
     }
 
@@ -97,11 +105,25 @@ secondReturnButton.addEventListener('click', () => {
     secondReturnMoove();
 })
 
+function thirdStepMoove(){
+    fourPart.style.display = "flex";
+    validateButton.style.display = "block";
+    thirdPart.style.display = "none";
+    thirdPartButton.style.display = "none";
+    step.style.display = "none"
+}
 thirdSubmitButton.addEventListener('click',(option)=>{
-    option.preventDefault;
+    option.preventDefault();
     validationNiveau();
     validationParcours();
     validationSpecialite()
+    const isNiveauValid = validationNiveau();
+    const isParcoursValid = validationParcours();
+    const isSpecialiteValid = validationSpecialite();
+
+    if(isNiveauValid && isParcoursValid && isSpecialiteValid){
+        thirdStepMoove();
+    }
 
 })
 
@@ -113,9 +135,9 @@ const inputPrenoms = document.getElementById("prenom");
 const inputCartNumber = document.getElementById("numCarte");
 
 // creer des expressions regulieres pour chaque champs
-const nameRegex = new RegExp("^[a-zA-Z' \s-]+$");
-const prenomsRegex = new RegExp("^[a-zA-Zéèêëàäïöüç \s-]+$");
-const cartNumberRegex = new RegExp("^[0-9-]+$");
+const nameRegex = new RegExp("^[a-zA-Z'\\s-]{3,}$");
+const prenomsRegex = new RegExp("^[a-zA-Zéèêëàäïöüç \s-]{3,}$");
+const cartNumberRegex = new RegExp("^\\d{3}-\\d{3}$");
 
 
 
@@ -148,7 +170,7 @@ function validationCartNumber() {
     if (cartNumberRegex.test(inputCartNumber.value)) {
         checkValidInput(inputCartNumber);
         return true;
-    } else {
+    }else {
         checkErrorFalse(inputCartNumber);
         return false;
     }
@@ -171,11 +193,12 @@ const genreElement = document.getElementById("sexe")
 
 // creer les expressions reguliere correspondante
 
-const emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9._-]+$");
+const emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.{1}[a-zA-Z0-9._-]+$");
 const numberRegex = new RegExp("^[7-9][0-9]{7}$");
 
 
 inputEmail.addEventListener('input', validationEmail);
+inputPassword.addEventListener('input',validationPassword)
 inputNumber.addEventListener('input',validationNumber);
 genreElement.addEventListener('input',validationSexe);
 
@@ -191,13 +214,17 @@ function validationEmail() {
 }
 
 function validationPassword(){
-    if(inputPassword.value.trim() == " "){
+    if(inputPassword.value.trim() == ""){
         checkErrorFalse(inputPassword);
         return false;
         
-    }else{
+    }else if( inputPassword.value.length < 3){
+
+        checkErrorFalse(inputPassword);
+        return false;
+    } else{
         checkValidInput(inputPassword);
-        return true ;
+        return true
     }
 }
 
@@ -214,8 +241,10 @@ function validationNumber(){
 function validationSexe(){
     if (genreElement.value === "") {
         checkErrorFalse(genreElement);
+        return false
     }else{
         checkValidInput(genreElement);
+        return true
     }
 }
 
@@ -232,22 +261,28 @@ specialiteElement.addEventListener('input',validationSpecialite);
 function validationNiveau(){
     if (niveauElement.value === "") {
         checkErrorFalse(niveauElement);
+        return false;
     }else{
         checkValidInput(niveauElement);
+        return true ;
     }
 }
 function validationParcours(){
     if (parcoursElement.value === "") {
         checkErrorFalse(parcoursElement);
+        return false;
     }else{
         checkValidInput(parcoursElement);
+        return true ;
     }
 }
 function validationSpecialite(){
     if (specialiteElement.value === "") {
         checkErrorFalse(specialiteElement);
+        return false;
     }else{
         checkValidInput(specialiteElement);
+        return true ;
     }
 }
 
