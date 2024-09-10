@@ -129,6 +129,23 @@ form button:hover {
 form .valide-button{
     display: none;
 }
+form .four-part{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+form .four-part .image img{
+    width: 120px;
+    margin: 80px 0;
+}
+form .four-part .text p{
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+}
+
 .second-part-button,
 .third-part-button
 {
